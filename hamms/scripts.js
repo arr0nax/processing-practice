@@ -10,6 +10,7 @@ var cameraX = 0;
 var cameraY = 0;
 var cameraZ = 0;
 var can;
+var can_accel = 1;
 
 var Bounce = function() {
   this.acceleration = createVector(0,0,0);
@@ -42,13 +43,13 @@ Bounce.prototype.update = function () {
 function setup(){
   createCanvas(windowWidth, windowHeight, WEBGL);
   // ortho(-width/2, width/2, height/2, -height/2, 0, 500);
-  perspective(180,width/height,48,5000)
+  perspective(180,width/height,48,5000);
   vid = createVideo(["space.mp4"]);
   vid.loop();
   vid.hide();
   vid.pause();
   vid.showControls();
-  kate = loadImage('kate.png');
+  kate = loadImage('spam.jpg');
   can = loadImage('hamms.jpg');
   for (var i=0;i<10;i++){
     balls.push(new Bounce());
@@ -66,7 +67,7 @@ function draw(){
   background(255);
   translate(0,0,200);
   push();
-    rotateY((frameCount)/100);
+    rotateY((-frameCount*can_accel)/100);
     texture(can);
     cylinder(100,300,100,100);
   pop();
@@ -83,18 +84,22 @@ function draw(){
     sphere(1000);
   pop();
 
-  for(var i=0; i<balls.length; i++){
-    translate(balls[i].position.x,balls[i].position.y,balls[i].position.z);
-    push();
-      // rotateY((mouseY/height)*4*PI - (width/2));
-      // rotateX((mouseX/width)*4*PI - (height/2));
-      texture(can);
-      rotateY((frameCount)/100);
-      rotateX((frameCount)/100);
-      box(balls[i].dimensions.x,balls[i].dimensions.y,balls[i].dimensions.z);
-    pop();
-    balls[i].update();
-    translate(-balls[i].position.x,-balls[i].position.y,-balls[i].position.z);
+  // for(var i=0; i<balls.length; i++){
+  //   translate(balls[i].position.x,balls[i].position.y,balls[i].position.z);
+  //   push();
+  //     // rotateY((mouseY/height)*4*PI - (width/2));
+  //     // rotateX((mouseX/width)*4*PI - (height/2));
+  //     texture(kate);
+  //     rotateY((frameCount)/100);
+  //     rotateX((frameCount)/100);
+  //     box(balls[i].dimensions.x,balls[i].dimensions.y,balls[i].dimensions.z);
+  //   pop();
+  //   balls[i].update();
+  //   translate(-balls[i].position.x,-balls[i].position.y,-balls[i].position.z);
+  // }
+  if (can_accel > 0) {
+    can_accel -= 0.05;
+    console.log(can_accel);
   }
 
 }
@@ -107,4 +112,7 @@ function mouseWheel(event) {
   cameraZ += event.delta;
 }
 
+function mouseMoved() {
+  can_accel += 0.2;
+}
 // function mouseMove() {}

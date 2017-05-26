@@ -1,0 +1,10 @@
+newmtl Hat_Material
+Ka 0.552941 0.552941 0.552941
+Kd 0.176471 0.176471 0.176471
+Ks 0.653333 0.653333 0.653333
+Ns 168.897018
+d 1.000000
+Tr 0.000000
+map_Kd Capsule - Diffuse.psd 
+adobe_map_Sphere_Environment 0 Default Material Map.psd 
+
