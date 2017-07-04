@@ -30,7 +30,7 @@ function draw() {
           // nextY = (((j+1)*10)+systems[s].origin[1]);
           distance = Math.pow(Math.pow((pointX - systems[s].origin[0]),2) + Math.pow((pointY - systems[s].origin[1]),2),0.5);
           newX = (distance*Math.cos(systems[s].angle * Math.PI/180));
-          newY = (distance*Math.sin(systems[s].angle * Math.PI/180));
+          newY = (pointY + distance*Math.sin(systems[s].angle * Math.PI/180));
           rect(newX,newY,10,10);
           // rect(i*squareSize, j*squareSize, 10,10);
           pop();
