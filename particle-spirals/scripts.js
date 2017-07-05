@@ -1,5 +1,5 @@
 var systems;
-var squareSize = 100;
+var squareSize = 10;
 var gridWidth;
 var gridHeight;
 
@@ -40,12 +40,12 @@ function draw() {
 //
 // }
   // systems[1].angle = (mouseX/windowWidth)*10;
-  for (var s=0; s<systems.length; s++) {
+  for (var s=1; s<systems.length; s++) {
     for(var i=0; i<systems[s].particles.length; i++) {
       for(var j=0; j<systems[s].particles[i].length; j++) {
         if (systems[s].particles[i][j][0]) {
           push();
-          // stroke(255/2*sin(frameCount/100)+255/2,255/2*sin(frameCount/110)+255/2, 255/2*sin(frameCount/120)+255/2);
+          stroke(255/2*sin(frameCount/110)+255/2,255/2*sin(frameCount/120)+255/2, 255/2*sin(frameCount/130)+255/2);
           fill(255/2*sin(frameCount/110)+255/2,255/2*sin(frameCount/120)+255/2, 255/2*sin(frameCount/130)+255/2);
           pointX = (i*squareSize);
           // nextX = (((i+1)*10)+systems[s].origin[0]);
@@ -74,13 +74,13 @@ function draw() {
               newY += windowHeight
             }
           }
-          rect(newX,newY,squareSize,squareSize);
+          ellipse(newX,newY,squareSize,squareSize);
           // rect(i*squareSize, j*squareSize, 10,10);
           pop();
-          if(s===1){
-            stroke(255/2*sin(frameCount/120)+255/2,255/2*sin(frameCount/130)+255/2, 255/2*sin(frameCount/140)+255/2);
-            line(pointX,pointY,newX,newY);
-          }
+          // if(s===1){
+          //   stroke(255/2*sin(frameCount/120)+255/2,255/2*sin(frameCount/130)+255/2, 255/2*sin(frameCount/140)+255/2);
+          //   line(pointX,pointY,newX,newY);
+          // }
         } else {
 
         }
