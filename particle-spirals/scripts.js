@@ -19,7 +19,7 @@ function setup() {
 
 function draw() {
   // background(255/2*sin(frameCount/90)+255/2,255/2*sin(frameCount/100)+255/2, 255/2*sin(frameCount/110)+255/2);
-  systems[1].origin = [(mouseX-windowWidth/2), (mouseY-windowHeight/2)];
+  // systems[1].origin = [(mouseX-windowWidth/2), (mouseY-windowHeight/2)];
 //   switch(int(random(0,5))) {
 //     case 0:
 //       origin = [0.1,0];
@@ -54,26 +54,26 @@ function draw() {
           // nextY = (((j+1)*10)+systems[s].origin[1]);
           newX = (distance*Math.cos(systems[s].angle * Math.PI/180));
           newX = pointX+newX+systems[s].origin[0];
-          if (newX > windowWidth) {
-            while (newX > windowWidth) {
-              newX -= windowWidth;
-            }
-          } else if (newX < 0) {
-            while (newX < 0) {
-              newX += windowWidth
-            }
-          }
+          // if (newX > windowWidth) {
+          //   while (newX > windowWidth) {
+          //     newX -= windowWidth;
+          //   }
+          // } else if (newX < 0) {
+          //   while (newX < 0) {
+          //     newX += windowWidth
+          //   }
+          // }
           newY = (distance*Math.sin(systems[s].angle * Math.PI/180));
           newY = newY+pointY+systems[s].origin[1];
-          if (newY > windowHeight) {
-            while (newY > windowHeight) {
-              newY -= windowHeight;
-            }
-          } else if (newY < 0) {
-            while (newY < 0) {
-              newY += windowHeight
-            }
-          }
+          // if (newY > windowHeight) {
+          //   while (newY > windowHeight) {
+          //     newY -= windowHeight;
+          //   }
+          // } else if (newY < 0) {
+          //   while (newY < 0) {
+          //     newY += windowHeight
+          //   }
+          // }
           ellipse(newX,newY,squareSize,squareSize);
           // rect(i*squareSize, j*squareSize, 10,10);
           pop();
