@@ -67,9 +67,9 @@ function draw(){
   background(255);
   translate(0,0,200);
   push();
-    rotateY((-frameCount*can_accel)/100);
+    rotateY((-frameCount*0.01));
     texture(can);
-    cylinder(100,300,100,100);
+    cylinder(100,400,100,100);
   pop();
   camera(0,0,48);
 
@@ -84,23 +84,20 @@ function draw(){
     sphere(1000);
   pop();
 
-  // for(var i=0; i<balls.length; i++){
-  //   translate(balls[i].position.x,balls[i].position.y,balls[i].position.z);
-  //   push();
-  //     // rotateY((mouseY/height)*4*PI - (width/2));
-  //     // rotateX((mouseX/width)*4*PI - (height/2));
-  //     texture(kate);
-  //     rotateY((frameCount)/100);
-  //     rotateX((frameCount)/100);
-  //     box(balls[i].dimensions.x,balls[i].dimensions.y,balls[i].dimensions.z);
-  //   pop();
-  //   balls[i].update();
-  //   translate(-balls[i].position.x,-balls[i].position.y,-balls[i].position.z);
-  // }
-  if (can_accel > 0) {
-    can_accel -= 0.05;
-    console.log(can_accel);
+  for(var i=0; i<balls.length; i++){
+    translate(balls[i].position.x,balls[i].position.y,balls[i].position.z);
+    push();
+      rotateY((mouseY/height)*4*PI - (width/2));
+      rotateX((mouseX/width)*4*PI - (height/2));
+      texture(kate);
+      rotateY((frameCount)/100);
+      rotateX((frameCount)/100);
+      box(balls[i].dimensions.x,balls[i].dimensions.y,balls[i].dimensions.z);
+    pop();
+    balls[i].update();
+    translate(-balls[i].position.x,-balls[i].position.y,-balls[i].position.z);
   }
+
 
 }
 
@@ -112,7 +109,4 @@ function mouseWheel(event) {
   cameraZ += event.delta;
 }
 
-function mouseMoved() {
-  can_accel += 0.2;
-}
 // function mouseMove() {}
