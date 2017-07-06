@@ -28,7 +28,7 @@ function setup() {
 
 function draw() {
   // background(255/2*sin(frameCount/90)+255/2,255/2*sin(frameCount/100)+255/2, 255/2*sin(frameCount/110)+255/2);
-  background(255);
+  // background(255);
   // systems[1].origin = [(mouseX-windowWidth/2), (mouseY-windowHeight/2)];
 //   switch(int(random(0,5))) {
 //     case 0:
@@ -50,7 +50,7 @@ function draw() {
 //
 // }
   // systems[1].angle = (mouseX/windowWidth)*10;
-  for (var s=0; s<2; s++) {
+  for (var s=1; s<2; s++) {
     for(var i=0; i<systems[s].particles.length; i++) {
       for(var j=0; j<systems[s].particles[i].length; j++) {
         if (systems[s].particles[i][j][0]) {
