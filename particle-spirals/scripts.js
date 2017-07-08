@@ -1,5 +1,5 @@
 var systems;
-var squareSize = 10;
+var squareSize = 50;
 var gridWidth;
 var gridHeight;
 var angle = 0;
@@ -30,6 +30,8 @@ function draw() {
   // background(255/2*sin(frameCount/90)+255/2,255/2*sin(frameCount/100)+255/2, 255/2*sin(frameCount/110)+255/2);
   // background(255);
   // systems[1].origin = [(mouseX-windowWidth/2), (mouseY-windowHeight/2)];
+  centerX = mouseX;
+  centerY = mouseY;
 //   switch(int(random(0,5))) {
 //     case 0:
 //       origin = [0.1,0];
@@ -88,7 +90,7 @@ function draw() {
           //     newY += windowHeight
           //   }
           // }
-          rect(newX,newY,squareSize,squareSize);
+          ellipse(newX,newY,squareSize,squareSize);
           // rect(i*squareSize, j*squareSize, 10,10);
           pop();
           // if(s===1){
@@ -118,7 +120,6 @@ ParticleSystem.prototype.addParticles = function () {
       pixelX = i*squareSize;
       pixelY = j*squareSize;
       angle = atan((pixelX-centerX)/(pixelY-centerY));
-      console.log("point "+ i + ", "+j+ "is at "+angle+" degrees");
 
 
       if(int(random(0,6)) === 0) {
