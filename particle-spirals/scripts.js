@@ -5,6 +5,7 @@ var gridHeight;
 var angle = 0;
 var centerX;
 var centerY;
+// var up = true;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -30,8 +31,10 @@ function draw() {
   // background(255/2*sin(frameCount/90)+255/2,255/2*sin(frameCount/100)+255/2, 255/2*sin(frameCount/110)+255/2);
   // background(255);
   // systems[1].origin = [(mouseX-windowWidth/2), (mouseY-windowHeight/2)];
-  centerX = mouseX;
-  centerY = mouseY;
+  // centerX = mouseX;
+  // centerY = mouseY;
+  centerY = windowHeight/2*sin(frameCount/100)+windowHeight/2;
+centerX = windowWidth/20*sin(frameCount/1000)+windowWidth/2;
 //   switch(int(random(0,5))) {
 //     case 0:
 //       origin = [0.1,0];
