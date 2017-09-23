@@ -5,9 +5,6 @@ var gridHeight;
 var angle = 0;
 var centerX;
 var centerY;
-var mic;
-var fft;
-var images = ['apple-logo-rainbow.png','bern.png','bath 1.png','bath 2.png','galaxy s8.png','getty.png','guy.png','guy2.png','horse.png','mlp.png','pink_leaf.gif','poke.png','purp.jpg','simba_khii.png','snoop.jpg','sword.png','tri.png','bath 1.png','bath 2.png','couple.png','cross.png','gary.png','getty.png','sink.png','snail1.png','snail2.gif','spiral7.png','toilet.png'];
 // var up = true;
 
 function setup() {
@@ -28,25 +25,14 @@ function setup() {
     }
   }
   systems.push(system2);
-  img = loadImage("sheep.png");
-  // mic = new p5.AudioIn();
-  // mic.start();
-  // fft = new p5.FFT();
-  //  fft.setInput(mic);
 }
 
 function draw() {
   // background(255/2*sin(frameCount/90)+255/2,255/2*sin(frameCount/100)+255/2, 255/2*sin(frameCount/110)+255/2);
-  // background(mic.getLevel()*100);
+  // background(255);
   // systems[1].origin = [(mouseX-windowWidth/2), (mouseY-windowHeight/2)];
   // centerX = mouseX;
   // centerY = mouseY;
-  // var spectrum = fft.analyze();
-  // console.log(spectrum.length);
-  // var low;
-  // for(var i = 0; i < 200; i++){
-  //
-  // }
   centerY = windowHeight/2*sin(frameCount/100)+windowHeight/2;
 centerX = windowWidth/20*sin(frameCount/1000)+windowWidth/2;
 //   switch(int(random(0,5))) {
@@ -107,7 +93,7 @@ centerX = windowWidth/20*sin(frameCount/1000)+windowWidth/2;
           //     newY += windowHeight
           //   }
           // }
-          image(systems[s].particles[i][j][3], newX,newY,squareSize,squareSize);
+          ellipse(newX,newY,squareSize,squareSize);
           // rect(i*squareSize, j*squareSize, 10,10);
           pop();
           // if(s===1){
@@ -140,9 +126,7 @@ ParticleSystem.prototype.addParticles = function () {
 
 
       if(int(random(0,6)) === 0) {
-        var total = int(random(0, images.length));
-        img = loadImage("images2/"+images[total]);
-        this.particles[i].push([1,distance,angle,img]);
+        this.particles[i].push([1,distance,angle]);
       } else {
         this.particles[i].push([0,distance,angle]);
       }
